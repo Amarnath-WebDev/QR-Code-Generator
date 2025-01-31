@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Added Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data=Qr%20Generator&size=100x100" alt="QR Code Icon">
+                <span>QR Generator</span>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="section active">
+            <h1>QR Code Generator</h1>
+            
+            <div id="qr-container" class="qr-container">
+                <div class="img-wrapper">
+                    <img src="" id="img" >
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="input-group">
+                    <label for="size">QR Code Size:</label>
+                    <select id="size" class="select-size">
+                        <option value="100">100x100</option>
+                        <option value="150">150x150</option>
+                        <option value="200">200x200</option>
+                        <option value="250" selected>250x250</option>
+                        <option value="300">300x300</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="qrtext">Enter Text:</label>
+                    <textarea 
+                        id="qrtext" 
+                        placeholder="Enter text to generate QR code"
+                        rows="4"
+                    ></textarea>
+                </div>
+
+                <button onclick="genQR()" class="generate-btn">Generate QR Code</button>
+            </div>
+
+            <div id="error-message" class="error-message"></div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="about-container">
+                <h1>About Us</h1>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>What We Do</h2>
+                        <p>We provide a simple and efficient way to generate QR codes for your needs. Whether it's for business cards, websites, or any other purpose, our tool makes it easy to create QR codes instantly.</p>
+                        
+                        <h2>How It Works</h2>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <p>Enter your text or URL</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <p>Choose your QR code size</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <p>Generate your QR code</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="contact-container">
+                <h1>Contact Us</h1>
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button class="submit-btn">Send Message</button>
+                    </div>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>contact@qrgenerator.com</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+1 234 567 890</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-location-dot"></i>
+                            <p>123 QR Street, Digital City</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Move footer outside container -->
+    <footer class="modern-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>QR Code Generator</h3>
+                <p>Create QR codes easily for your links, text, and more.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Developed by Amar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
